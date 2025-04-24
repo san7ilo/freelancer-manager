@@ -1,5 +1,4 @@
 <?php
-// Config.php
 
 class Config {
     const DB_HOST = 'localhost';
@@ -7,9 +6,9 @@ class Config {
     const DB_USER = 'root';
     const DB_PASS = '';
 
-    const JWT_SECRET = 'your_jwt_secret_key';
+    const JWT_SECRET = 'miclavesuperperomuymuymuysecretadejwt12345';
     const JWT_EXPIRATION_TIME = 3600; // 1 hour
 
-    // Other general configurations can be added here
+   
 }
 ?>
