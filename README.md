@@ -1,5 +1,3 @@
-# Contenido del archivo: /freelancer-manager/freelancer-manager/README.md
-
 # Freelancer Manager
 
 Este proyecto es un sistema de gestión de proyectos para freelancers, donde los usuarios pueden registrarse, iniciar sesión, crear y administrar proyectos, así como subir archivos relacionados.
@@ -47,11 +45,3 @@ freelancer-manager
 - **Inicio de sesión**: Los usuarios pueden iniciar sesión utilizando su email y contraseña.
 - **Gestión de proyectos**: Los usuarios pueden crear, ver, editar y eliminar proyectos.
 - **Manejo de archivos**: Los usuarios pueden subir, descargar y eliminar archivos relacionados con sus proyectos.
-
-## Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request para discutir cambios.
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT.
