@@ -92,5 +92,8 @@
       }
     }
   },
-  "defaultProject": "freelancer-manager"
+  "defaultProject": "freelancer-manager",
+  "cli": {
+    "analytics": false
+  }
 }
