@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./backend/src:/var/www/html
+    networks:
+      - freelancer-network
+
+  mysql:
+    build:
+      context: ./docker/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: freelancer_manager
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - freelancer-network
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend/src:/var/www/html
+    networks:
+      - freelancer-network
+
+networks:
+  freelancer-network:
+    driver: bridge
+
+volumes:
+  mysql_data:

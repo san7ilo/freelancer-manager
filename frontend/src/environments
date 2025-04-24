@@ -1,0 +1,7 @@
+Aquí tienes el contenido del archivo `/freelancer-manager/freelancer-manager/frontend/src/environments/environment.ts`:
+
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8000/api', // URL de la API del backend
+  jwtToken: 'your_jwt_token_here' // Token JWT para autenticación
+};

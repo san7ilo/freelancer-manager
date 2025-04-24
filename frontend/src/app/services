@@ -1,0 +1,87 @@
+// frontend/src/app/services/auth.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private apiUrl = 'http://localhost:8000/api/auth'; // Cambiar según la configuración del backend
+
+  constructor(private http: HttpClient) { }
+
+  register(user: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, user);
+  }
+
+  login(credentials: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, credentials);
+  }
+
+  logout(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/logout`, {});
+  }
+}
+
+// frontend/src/app/services/project.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProjectService {
+  private apiUrl = 'http://localhost:8000/api/projects'; // Cambiar según la configuración del backend
+
+  constructor(private http: HttpClient) { }
+
+  getProjects(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
+
+  getProject(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  createProject(project: any): Observable<any> {
+    return this.http.post(this.apiUrl, project);
+  }
+
+  updateProject(id: number, project: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, project);
+  }
+
+  deleteProject(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+}
+
+// frontend/src/app/services/file.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class FileService {
+  private apiUrl = 'http://localhost:8000/api/files'; // Cambiar según la configuración del backend
+
+  constructor(private http: HttpClient) { }
+
+  uploadFile(projectId: number, file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(`${this.apiUrl}/upload/${projectId}`, formData);
+  }
+
+  getFiles(projectId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/project/${projectId}`);
+  }
+
+  deleteFile(fileId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${fileId}`);
+  }
+}
